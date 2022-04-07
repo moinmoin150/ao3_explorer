@@ -10,8 +10,10 @@ from bs4 import BeautifulSoup, NavigableString
 import urllib.request
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/tianhuazhu/Downloads/key3.json"
-client = bigquery.Client()
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
+)
+client = bigquery.Client(credentials=credentials)
 
 st.markdown("# AO3 Playground")
 
@@ -61,6 +63,3 @@ for idx, row in full_df.loc[(full_df.Author==author)&(full_df.Language==lang)].i
             content = row['Content'].replace('\n', ' \n\n\n ').replace('\xa0', ' \n\n\n ').replace('\u3000', ' \n\n\n ')
             st.write(re.sub("~+", " \* ", str(content)))
 
-
-# if st.checkbox(titles[0]):
-#     st.text(summaries[0])
