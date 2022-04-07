@@ -40,6 +40,7 @@ def search_content2(phrase, content):
             out += len(re.findall(fr"{w}", content.lower()))
         if length == 0:
             out = 0
+            break
     return out
 
 def open_fic(work_id):
