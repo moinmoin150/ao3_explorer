@@ -82,8 +82,8 @@ data_load_state.text('Loading dataset...Completed!')
 stats = pd.read_csv("GGAD_stats.csv", index_col=0)
 full_df = df.merge(stats.loc[:,stats.columns!='Date_published'], on='ID', how='inner')
 
-st.sidebar.markdown("## 工具栏")
-status = st.sidebar.radio("想怎么挑选？",['按作者筛选','按标题关键词','搜索全文'])
+
+status = st.radio("想怎么挑选？",['按作者筛选','按标题关键词','搜索全文'])
 if status == '按作者筛选':
     st.text('Step 1')
     lang = st.selectbox("选择一种语言", index=0, options=sorted(list(set(full_df.Language.to_list()))))
