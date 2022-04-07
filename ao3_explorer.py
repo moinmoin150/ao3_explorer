@@ -128,7 +128,7 @@ if status == '按标题关键词':
 
 if status == '搜索全文':
     items = st.text_area(
-            '输入关键词(多词组请用英文字符的逗号区分“,”)',
+            '输入关键词(多词组请用**英文字符**的逗号区分“,”)',
             pure_comma_separation("", return_list=False),
         )
     search_status = st.radio("逻辑关系",['AND','OR'])
