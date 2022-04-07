@@ -155,7 +155,6 @@ if status == '搜索全文':
                     "(请输入至少一个关键字)"
                 )
             else:
-                st.markdown('以关键词出现频率排序：')
                 display_list = []
                 for idx, row in full_df.iterrows():
                     if search_status == 'OR':
@@ -166,6 +165,8 @@ if status == '搜索全文':
                         display_list.append((idx, result))
 
                 sorted_display_list = sorted(display_list, key=lambda tup: tup[1])[::-1]
+                st.markdown(f'找到了{len(sorted_display_list)}个结果：')
+                st.markdown('(以关键词出现频率排序)')
                 for i, r in sorted_display_list:
                     with st.expander(full_df.loc[i,'Title']):
                         st.markdown('关键词共计出现**'+str(r)+'**次')
