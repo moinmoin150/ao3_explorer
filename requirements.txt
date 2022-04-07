@@ -6,4 +6,5 @@ numpy
 google-cloud-bigquery==3.0.1
 db-dtypes==1.0.0
 regex==2020.6.8
+lxml==4.5.2
 bs4==0.0.1
