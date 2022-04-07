@@ -66,7 +66,7 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-st.markdown("# AO3 Playground")
+st.markdown("# AO3 Playground -- Under Albus Dumbledore/Gellert Grindelwald Tag")
 
 @st.cache(persist=True, show_spinner=True, allow_output_mutation=True)
 def load_data():
@@ -117,7 +117,7 @@ if status == '按标题关键词':
                 )
             else:
                 for idx, row in full_df.iterrows():
-                    if items.lower() in row['Title'].lower():
+                    if item.lower() in row['Title'].lower():
                         with st.expander(row['Title']):
                             st.markdown(row['Summary'])
                             st.write(f"https://archiveofourown.org/works/{row['ID']}/")
